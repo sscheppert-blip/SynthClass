@@ -24,3 +24,9 @@ Everything runs in the browser with the Web Audio API. Part 1 uses Web Audio nod
 # SynthClass (Deutsch)
 
 Ein zweiteiliger Synthesizer-Kurs im Browser, mit spielbarem Lernsynth direkt neben dem Text. Die deutsche Version liegt unter `/de`.
+
+## License
+
+Released into the public domain under the [Unlicense](LICENSE). Use it in class, at university, in your own projects, anywhere.
+
+Fonts are loaded from Google Fonts and keep their own licenses (SIL Open Font License). Product names mentioned in the comparison table belong to their respective owners.
