@@ -1,0 +1,62 @@
+.course-nav{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+.course-nav a{border:1px solid var(--rule);padding:8px 12px;color:var(--ink);text-decoration:none;font-size:15px}
+.course-nav a[aria-current]{background:var(--ink);color:var(--paper)}
+.course-footer{display:block}
+.course-bottom{width:100%;font:14px/1.8 var(--f-body);letter-spacing:normal;text-transform:none;margin-bottom:16px}
+.course-bottom-links{display:flex;flex-wrap:wrap;align-items:center;gap:4px 9px}
+.course-bottom a{color:var(--ink);text-underline-offset:3px}
+.course-bottom a[aria-current=page]{font-weight:700;text-decoration:none}
+.course-bottom-adjacent{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;margin-top:12px}
+.course-bottom-adjacent a[rel=next]{margin-left:auto}
+.course-bottom a:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.course-controls{border:1px solid var(--panel-line);background:var(--panel-2);color:var(--panel-text);padding:16px;margin:12px;border-radius:6px;font:14px var(--f-body)}
+.course-controls h2{font:20px var(--f-display);margin:0 0 12px}
+.s-main>.course-controls,.secs>.course-controls{grid-column:1/-1;min-width:0}
+.synth.min .course-controls{display:none}
+.synth.min .ctrls>:not(#minimize):not(#dock),.synth.min .playback-status{display:none}
+.course-controls label{display:flex;flex-direction:column;gap:5px;min-width:100px}
+.course-controls input,.course-controls select{font:inherit;max-width:100%;padding:6px;background:var(--panel);color:var(--panel-text);border:1px solid var(--panel-dim);border-radius:3px}
+.course-controls input[type=checkbox]{min-height:22px;accent-color:var(--led-on)}
+.course-controls .transport-row{display:flex;gap:12px;flex-wrap:wrap;align-items:end;margin:12px 0}
+.course-controls button{min-height:36px;cursor:pointer}
+.course-controls button:focus-visible,.course-nav a:focus-visible{outline:3px solid var(--led-on);outline-offset:3px}
+.steps{display:grid;grid-template-columns:repeat(8,minmax(64px,1fr));gap:6px;overflow-x:auto;padding:4px 2px 10px}
+.steps label{min-width:64px;padding:8px 4px;border:2px solid transparent;text-align:center}
+.steps label.playing{border-color:var(--led-on);background:var(--panel)}
+.course-status{min-height:24px;margin:8px 0;color:var(--panel-text)}
+.playback-status{font:13px/1.5 var(--f-body);color:var(--panel-text);padding:8px 12px;margin:0;border-bottom:1px solid var(--panel-line)}
+#synth .s-head .preview-stop{background:#a8360f;color:#fff;border-color:#fff;font-weight:700;min-width:88px}
+#previewTest[aria-pressed=true]{outline:2px solid var(--led-on);outline-offset:2px}
+.course-controls [hidden]{display:none!important}
+.lfo-route{display:grid;grid-template-columns:60px minmax(0,1fr);gap:4px 10px;align-items:center}
+.lfo-route .selw{min-width:0}
+@media(max-width:600px){.steps{grid-template-columns:repeat(4,minmax(52px,1fr))}.course-nav a{flex:1 1 40%}}
+@container synth (max-width:700px){.steps{grid-template-columns:repeat(4,minmax(52px,1fr))}}
+
+/* Eight-step interaction in the existing Pro-1 panel theme. */
+.seq-rack{background:var(--panel);color:var(--panel-text);border:1.5px solid var(--panel-print);border-radius:10px;box-shadow:none;padding:14px}
+.seq-rack .seq-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid var(--panel-line);padding-bottom:10px}
+.seq-rack .seq-heading h2{font:600 13px var(--f-mono);letter-spacing:.14em;margin:0;color:var(--panel-print)}
+.seq-rack .seq-heading>span{font:10px var(--f-mono);color:var(--panel-dim);letter-spacing:.08em}
+.seq-rack .seq-toolbar{gap:12px;margin:12px 0}
+.seq-rack .seq-toolbar label{font:10px var(--f-mono);letter-spacing:.06em;min-width:80px}
+.seq-rack input,.seq-rack select{background:var(--panel);border-color:var(--panel-print);color:var(--panel-print);box-shadow:none}
+.seq-rack .seq-channel-row{padding:12px 0;border-top:1px solid var(--panel-line);border-bottom:1px solid var(--panel-line)}
+.seq-rack .steps{grid-template-columns:repeat(8,minmax(32px,1fr));gap:9px;overflow:visible;padding:0}
+.seq-rack .seq-step{display:flex;flex-direction:column;align-items:stretch;gap:7px;min-width:0}
+.seq-rack .seq-step:nth-child(5){border-left:1px solid var(--panel-dim);padding-left:9px}
+.seq-rack .step-number{text-align:center;font:10px var(--f-mono);color:var(--panel-print)}
+.seq-rack .steps .step-switch{display:block;position:relative;min-width:0;padding:0;border:0;height:40px;cursor:pointer}
+.seq-rack .step-switch input{position:absolute;opacity:0;width:100%;height:100%;margin:0}
+.seq-rack .step-cap{display:block;position:relative;height:100%;border:1.5px solid var(--panel-print);border-radius:3px;background:var(--scope-bg);box-shadow:none}
+.seq-rack .step-cap:after{content:'';position:absolute;left:calc(50% - 3px);top:7px;width:6px;height:6px;background:var(--led-off);border-radius:50%}
+.seq-rack .step-switch input:checked+.step-cap{background:var(--panel-print);border-color:var(--panel-print)}
+.seq-rack .step-switch input:checked+.step-cap:after{background:var(--led-on)}
+.seq-rack .step-switch input:focus-visible+.step-cap{outline:2px solid var(--led-on);outline-offset:3px}
+.seq-rack .steps select{width:100%;min-width:0;min-height:27px;padding:3px 2px;font:10px var(--f-mono);text-align:center;letter-spacing:0;border-radius:3px}
+.seq-rack .seq-step.playing{background:none;border:0}
+.seq-rack .seq-step.playing .step-cap{outline:2px solid var(--led-on);outline-offset:2px}
+.seq-rack .seq-step.playing .step-number{color:var(--led-on)}
+.seq-rack #transport-start[aria-pressed=true]{background:var(--panel-print);color:var(--panel);border-color:var(--led-on)}
+.seq-rack .course-status,.seq-rack #chord-status{font:11px var(--f-mono);color:var(--panel-dim)}
+@container synth (max-width:700px){.seq-rack .steps{gap:5px;grid-template-columns:repeat(8,minmax(25px,1fr))}}

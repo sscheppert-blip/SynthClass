@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>SynthClass Advanced</title>
+<title>SynthClass · 2. Movement in sound</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Archivo+Narrow:wght@600;700&display=swap">
 <style>
 /* Layout: Lehrtext links zum Lesen, spielbarer Synth rechts klebend daneben; mobil steht der Synth oben. */
@@ -174,7 +174,6 @@ footer.foot{margin-top:56px;border-top:1px solid var(--rule);padding-top:10px;fo
 .key.w{flex:1;background:var(--key-white);color:var(--key-white-ink);border-radius:0 0 3px 3px;padding-bottom:6px;min-width:0}
 .key.b{position:absolute;top:0;height:64%;background:var(--key-black);color:var(--panel-dim);border-radius:0 0 2px 2px;padding-bottom:4px;z-index:1}
 .key.down{background:var(--key-down);color:var(--key-black)}
-.midi-status{font-family:var(--f-mono);font-size:12px;color:var(--panel-dim)}
 .toplinks{display:flex;gap:8px 20px;flex-wrap:wrap}
 .top a{color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px}
 .navlink{font-family:var(--f-mono);font-size:14px;font-weight:600;color:var(--accent-ink)}
@@ -302,60 +301,15 @@ footer.foot{margin-top:56px;border-top:1px solid var(--rule);padding-top:10px;fo
 .harm .hint{font-size:15px;color:var(--panel-label);line-height:1.45}
 </style>
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
+<link rel="stylesheet" href="course.css?v=429349cc2f">
 </head>
-<body>
+<body data-course="2">
 <div class="page">
-  <div class="top"><div>SynthClass · Part 2 · FUNKE 2</div><div class="toplinks"><a href="index.html">← Part 1: Basics</a><a href="de/fortgeschritten.html" hreflang="de" lang="de">Deutsch</a></div></div>
-
-  <header class="hero">
-    <h1>Synthesizers for advanced players</h1>
-    <p class="lead">Part 1 explained oscillator, filter, envelopes and LFO. This part is about what modern synths can do beyond that: overtones, several oscillators, unison, hard sync, filters in depth and freely patchable modulation. The try-it buttons work as in part 1; click again to switch off.</p>
-  </header>
+  <div class="top"><div>SynthClass · Part 2 / 5</div><a href="de/fortgeschritten.html" hreflang="de">Deutsch</a></div><nav aria-label="Course pages" class="course-nav"><a href="index.html">1. Basics</a><a href="advanced.html" aria-current="page">2. Movement in sound</a><a href="modulation.html">3. Modulation & matrix</a><a href="sequencer.html">4. Sequencer & arpeggiator</a><a href="drums.html">5. Drums & percussion</a></nav><header class="hero"><h1>Movement in sound</h1><p class="lead">Read, listen, try it yourself.</p></header>
 
   <div class="layout">
-    <main class="text">
+    <main class="text"><section class="chapter" id="start"><h2>Movement in sound</h2><p>Add movement with LFO, unison and detune. Keep using the filters and envelopes from part 1. LFO routing is simplified here; build your own connections in part 3.</p></section><section class="chapter" id="oscillators">
 
-      <section class="chapter" id="start">
-        <div class="kicker">The FUNKE 2</div>
-        <div class="howto">
-          <div><span class="k">NEW</span>Two oscillators, unison, three envelopes, two LFOs, three mod slots, glide.</div>
-          <div><span class="k">VELOCITY</span>Clicking low on a piano key plays loud, high plays soft. Chapter 4 needs this.</div>
-          <div><span class="k">WINDOW</span>Starts collapsed, showing the scopes. EXPAND shows every control.</div>
-          <div><span class="k">KEYBOARD</span>As in part 1: computer keys in the boxes, X and C for the octave, MIDI works too.</div>
-        </div>
-      </section>
-
-      <section class="chapter" id="overtones">
-        <div class="kicker">Chapter 1 · Overtones</div>
-        <h2>Every sound is a stack of sine waves</h2>
-        <p>Part 1 said waveforms sound different because they bring different overtones. Here you can build that yourself. Each bar is a sine tone. The first is the fundamental, the second vibrates twice as fast, the third three times as fast, and so on. The height of a bar says how loud that overtone is.</p>
-        <p>On the right you see the wave your stack produces. To hear it, click “Listen to overtones”, then drag in the editor.</p>
-        <div class="harm" id="harmBox">
-          <div class="row">
-            <div class="cell"><span class="lbl">OVERTONES 1–16 · DRAG TO CHANGE</span><canvas class="bars" id="harmBars" aria-label="Overtone editor: 16 bars, drag up and down with the mouse"></canvas></div>
-            <div class="cell"><span class="lbl">RESULT: ONE PERIOD</span><canvas id="harmWave" aria-hidden="true"></canvas></div>
-          </div>
-          <p class="hint">Try this: “Clear all” (the fundamental stays), then pull up a single high overtone. You hear a second, whistling tone join in, and yet the whole thing is one sound.</p>
-        </div>
-        <div class="tries">
-          <button class="try" data-lesson="h_listen">Listen to overtones</button>
-          <button class="try" data-lesson="h_sine">Fundamental only</button>
-          <button class="try" data-lesson="h_saw">Sawtooth</button>
-          <button class="try" data-lesson="h_sqr">Square</button>
-          <button class="try" data-lesson="h_tri">Triangle</button>
-          <button class="try" data-lesson="h_organ">Organ</button>
-          <button class="try" data-lesson="h_clear">Clear all</button>
-        </div>
-        <div class="defs">
-          <div class="def"><div class="head"><h3>Sawtooth</h3></div><p>All overtones, each a bit quieter than the one before: the second half as loud, the third a third.</p></div>
-          <div class="def"><div class="head"><h3>Square</h3></div><p>Only every other overtone (1, 3, 5, 7 …), otherwise like the sawtooth. Hence the hollow sound.</p></div>
-          <div class="def"><div class="head"><h3>Triangle</h3></div><p>Also only odd overtones, but they fade out much faster. That is why it sounds so soft.</p></div>
-        </div>
-        <p class="note">This is also why a filter can do anything at all: a low-pass simply pulls the high bars down. With a sine wave there is nothing to take away.</p>
-      </section>
-
-      <section class="chapter" id="oscillators">
-        <div class="kicker">Chapter 2 · OSC 1, OSC 2, UNISON</div>
         <h2>Two oscillators, many voices</h2>
         <p>The FUNKE 2 has two oscillators. <b>LEVEL</b> mixes them, <b>SEMI</b> shifts OSC 2 in semitones, <b>FINE</b> in cents (a hundredth of a semitone).</p>
         <h3>Detune: beating</h3>
@@ -376,81 +330,7 @@ footer.foot{margin-top:56px;border-top:1px solid var(--rule);padding-top:10px;fo
           <button class="try" data-lesson="u_mono">Width 0 (mono)</button>
         </div>
         <p>Two things people often notice late: a lot of detune quickly sounds out of tune rather than wide. And very wide unison sounds can get quieter or thinner when heard in mono, for example on a phone speaker, because the voices partly cancel out there.</p>
-        <h3>Hard sync</h3>
-        <p>With <b>SYNC</b>, OSC 2 has to restart every time OSC 1 restarts. The pitch is then set by OSC 1. Changing OSC 2 no longer changes the pitch but the tone colour, in a cutting, vowel-like way. You hear it best when OSC 2 moves.</p>
-        <div class="tries">
-          <button class="try" data-lesson="s_sync">Sync on</button>
-          <button class="try" data-lesson="s_sweep">Sync sweep</button>
-        </div>
-        <p class="note">With “Sync on”, OSC 1 is muted and only sets the timing. Turn SEMI of OSC 2 up and down: the pitch stays, the colour moves. In the sync sweep the third envelope does the turning, through a mod slot (chapter 4).</p>
-      </section>
-
-      <section class="chapter" id="filter">
-        <div class="kicker">Chapter 3 · FILTER</div>
-        <h2>Filters in depth</h2>
-        <h3>Four types</h3>
-        <p>Next to low-pass, high-pass and band-pass there is the <b>notch</b>: it lets almost everything through and cuts out only a narrow band. On its own that sounds subtle, moving it sounds like a phaser.</p>
-        <div class="tries">
-          <button class="try" data-lesson="f_notch">Moving notch</button>
-        </div>
-        <h3>Slope: 6, 12, 24 dB</h3>
-        <p>The number says how strongly the filter attenuates per octave beyond the cutoff. 6 dB is very gentle and has no resonance, because it is the simplest filter possible. 12 dB is the classic of many synths, 24 dB sounds fat and dark. Watch on the right how steeply the filter curve falls.</p>
-        <div class="tries">
-          <button class="try" data-lesson="f_6">6 dB</button>
-          <button class="try" data-lesson="f_12">12 dB</button>
-          <button class="try" data-lesson="f_24">24 dB</button>
-        </div>
-        <h3>Resonance up to self-oscillation</h3>
-        <p>Turn resonance all the way up and the filter whistles on its own, even when no oscillator is playing. It becomes a sine oscillator itself, whose pitch is the cutoff.</p>
-        <div class="tries">
-          <button class="try" data-lesson="f_self">Self-oscillation</button>
-        </div>
-        <h3>Keytracking</h3>
-        <p><b>KEYTRK</b> makes the cutoff follow the keyboard. At 0 % the cutoff stays put: low notes sound bright, high notes dull, because almost all of their overtones lie above the cutoff. At 100 % the cutoff moves along and every note sounds equally bright. Combined with self-oscillation the filter becomes playable.</p>
-        <div class="tries">
-          <button class="try" data-lesson="f_kt0">Keytrack 0 %</button>
-          <button class="try" data-lesson="f_kt1">Keytrack 100 %</button>
-          <button class="try" data-lesson="f_play">Filter as an instrument</button>
-        </div>
-        <h3>Drive</h3>
-        <p><b>DRIVE</b> overdrives the signal before it enters the filter. The waveform gets rounded off and flattened, creating new overtones. A little drive sounds denser and warmer, a lot sounds raspy. Analogue synths always do this a bit, whether you want it or not.</p>
-        <div class="tries">
-          <button class="try" data-lesson="f_drive0">Without drive</button>
-          <button class="try" data-lesson="f_drive">With drive</button>
-        </div>
-      </section>
-
-      <section class="chapter" id="mod">
-        <div class="kicker">Chapter 4 · MOD SLOTS</div>
-        <h2>Any source to any destination</h2>
-        <p>On the FUNKE 1 it was hard-wired what moves what: the filter envelope moves the cutoff, the LFO moves the chosen destination. Modern synths let you patch the connections yourself. Each <b>mod slot</b> is a row with three fields:</p>
-        <div class="defs">
-          <div class="def"><div class="head"><h3>Source</h3></div><p>What moves: LFO 1, LFO 2, ENV 3, velocity (how hard you play), mod wheel or keytrack (how high the key is).</p></div>
-          <div class="def"><div class="head"><h3>Destination</h3></div><p>What gets moved: pitch, pitch of OSC 2, cutoff, resonance, pulse width, detune, volume or the rate of LFO 1.</p></div>
-          <div class="def"><div class="head"><h3>Amount</h3></div><p>How strongly, and in which direction. Turned to the left, the source works in reverse.</p></div>
-        </div>
-        <p>Envelope 3 and both LFOs only exist for the mod slots. As long as no slot uses them, they do nothing.</p>
-        <div class="tries">
-          <button class="try" data-lesson="m_vel">Velocity → cutoff</button>
-          <button class="try" data-lesson="m_drop">ENV 3 → pitch</button>
-          <button class="try" data-lesson="m_wheel">Mod wheel → cutoff</button>
-          <button class="try" data-lesson="m_lfolfo">LFO 2 → rate of LFO 1</button>
-          <button class="try" data-lesson="m_two">One source, two destinations</button>
-        </div>
-        <p class="note">“Velocity → cutoff” first plays a row of notes with rising velocity. After that, click the keys yourself, far up and far down. For “Mod wheel → cutoff”, turn the MOD WHL knob in the PLAY section.</p>
-        <h3>Glide and legato</h3>
-        <p><b>GLIDE</b> makes the pitch slide from one note to the next instead of jumping. <b>LEGATO</b> decides what happens when you press a new key before releasing the old one: with legato the envelope simply keeps going and only the pitch glides. Without legato every note starts over.</p>
-        <div class="tries">
-          <button class="try" data-lesson="g_leg">Glide with legato</button>
-          <button class="try" data-lesson="g_noleg">Glide without legato</button>
-        </div>
-      </section>
-
-      <section class="chapter" id="back">
-        <div class="kicker">Back</div>
-        <p>The basics of oscillator, filter, envelopes and LFO are in <a class="navlink" href="index.html">part 1</a>.</p>
-      </section>
-    </main>
+        </section><section class="chapter" id="lfo"><h2>LFO</h2><p>An LFO is a slow oscillator that repeatedly moves a sound parameter. Unlike an envelope, it keeps cycling while you hold the note.</p><p><b>RATE</b> sets the speed in hertz: 1 Hz means one cycle per second. <b>SHAPE</b> sets the movement. Sine and triangle are smooth, square jumps, and S&amp;H chooses random values.</p><p>Choose a target in <b>DEST</b>: pitch gives vibrato, volume gives tremolo, cutoff gives filter wobble. <b>AMT</b> controls the depth. Start small and increase it slowly.</p><div class="tries"><button class="try" data-lesson="course_vib">Vibrato</button><button class="try" data-lesson="course_trem">Tremolo</button><button class="try" data-lesson="course_wob">Filter-Wobble</button></div></section><section class="chapter" id="pwm"><h2>Pulse width modulation · PWM</h2><p>On page 1 you adjusted pulse width by hand. With <b>pulse width modulation (PWM)</b>, the LFO does that movement. Select SQR in OSC 1, set PW to 50 %, select <b>Pulse width</b> in LFO →, and increase AMT. RATE controls how quickly the pulse narrows and widens. The sound shimmers even with only one oscillator audible.</p><p>Compare this with detune: detune creates beats between slightly different pitches; PWM changes the pulse shape. This example uses one oscillator, one unison voice and a slow triangle LFO. PW sets the base width; AMT sets how far the LFO moves it. PWM only affects SQR.</p><div class="tries"><button class="try" data-lesson="course_pwm">PWM · LFO → PW</button></div></section></main>
 
     <aside class="synth-col" aria-label="Playable synthesizer FUNKE 2">
       <div class="synth" id="synth">
@@ -458,19 +338,13 @@ footer.foot{margin-top:56px;border-top:1px solid var(--rule);padding-top:10px;fo
           <div class="brand"><span class="grip" aria-hidden="true" title="Drag to move"></span><span class="n">FUNKE 2</span><span class="d">TEACHING SYNTH</span></div>
           <div class="ctrls">
             <label for="preset" class="brand"><span class="d">SOUND</span></label>
-            <select id="preset">
-              <option value="init">Basic sound</option>
-              <option value="u_7">Unison wall</option>
-              <option value="s_sweep">Sync lead</option>
-              <option value="f_play">Filter as an instrument</option>
-              <option value="h_organ">Additive organ</option>
-            </select>
-            <button class="pbtn power" id="power" aria-pressed="false"><span class="dot"></span><span id="powerLbl">SOUND ON</span></button>
+            <select id="preset"><option value="init">Initial sound</option><option value="d_beat">Detune</option><option value="u_7">Unison</option><option value="course_vib">Vibrato</option><option value="course_wob">Wobble</option><option value="course_pwm">PWM</option></select>
+            <button class="pbtn" id="previewTest" aria-pressed="false">▶ TEST (LOOP)</button><button class="pbtn preview-stop" id="previewStop">■ STOP</button><button class="pbtn power" id="power" aria-pressed="false"><span class="dot"></span><span id="powerLbl">SOUND ON</span></button>
             <button class="pbtn" id="minimize" aria-expanded="true" aria-controls="synth">COLLAPSE</button>
             <button class="pbtn" id="dock">DOCK</button>
           </div>
         </div>
-        <div class="s-main">
+        <p class="playback-status" id="playbackStatus" role="status">Ready · Examples stop automatically. TEST loops until STOP.</p><div class="s-main">
           <div class="screens">
             <div class="screen"><canvas id="scope" aria-label="Oscilloscope"></canvas><span class="lbl">WAVE</span></div>
             <div class="screen"><canvas id="spec" aria-label="Overtones and filter curve"></canvas><span class="lbl">OVERTONES · <span style="color:var(--curve)">FILTER CURVE</span></span></div>
@@ -481,10 +355,8 @@ footer.foot{margin-top:56px;border-top:1px solid var(--rule);padding-top:10px;fo
           <div class="kbar">
             <button class="pbtn" id="octDown" aria-label="Octave down">OCT −</button>
             <button class="pbtn" id="octUp" aria-label="Octave up">OCT +</button>
-            <button class="pbtn" id="hold" aria-pressed="false">HOLD</button>
+            <button class="pbtn" id="hold" aria-pressed="false" title="Latch manually played notes until clicked again.">LATCH NOTE</button>
             <button class="pbtn" id="stop">STOP</button>
-            <button class="pbtn" id="midi">MIDI</button>
-            <span class="midi-status" id="midiStatus"></span>
             <span class="hint" id="octLbl">OCTAVE C3</span>
           </div>
           <div class="keys" id="keys"></div>
@@ -494,7 +366,7 @@ footer.foot{margin-top:56px;border-top:1px solid var(--rule);padding-top:10px;fo
     </aside>
   </div>
 
-  <footer class="foot"><span>FUNKE 2 is a made-up teaching synth. The sound is generated in its own audio thread right in your browser. Drag the top bar to move the window, drag the bottom right corner to scale it.</span><span><a class="navlink" href="index.html">Part 1: Basics</a></span></footer>
+  <footer class="foot course-footer"><nav class="course-bottom" aria-label="Course navigation at the end of the page"><div class="course-bottom-links"><a href="index.html">1. Basics</a> <span aria-hidden="true">·</span> <a href="advanced.html" aria-current="page">2. Movement in sound</a> <span aria-hidden="true">·</span> <a href="modulation.html">3. Modulation & matrix</a> <span aria-hidden="true">·</span> <a href="sequencer.html">4. Sequencer & arpeggiator</a> <span aria-hidden="true">·</span> <a href="drums.html">5. Drums & percussion</a></div><div class="course-bottom-adjacent"><a rel="prev" href="index.html">← Previous: Basics</a><a rel="next" href="modulation.html">Next: Modulation & matrix →</a></div></nav><small>SynthClass · Movement in sound</small></footer>
 </div>
 
 <div class="toast" id="toast" hidden><span id="toastText">Playing. The controls in the synth are marked.</span><button class="pbtn" id="toastGo">TO THE SYNTH</button></div>
@@ -541,10 +413,9 @@ const PARAMS={
   m2a:{label:'AMT',aria:'Mod slot 2 amount',min:-1,max:1,def:0,bip:1,fmt:bip},
   m3a:{label:'AMT',aria:'Mod slot 3 amount',min:-1,max:1,def:0,bip:1,fmt:bip},
   glide:{label:'GLIDE',aria:'Glide time',min:0,max:1,def:0,fmt:v=>v<.001?'off':sec(v)},
-  mw:{label:'MOD WHL',aria:'Mod wheel',min:0,max:1,def:0,fmt:pct},
   vol:{label:'VOLUME',aria:'Volume',min:0,max:1,def:.6,fmt:pct}
 };
-const WAVES=[['sin','SIN'],['tri','TRI'],['saw','SAW'],['sqr','SQR'],['add','ADD']];
+const WAVES=[['sin','SIN'],['tri','TRI'],['saw','SAW'],['sqr','SQR']];
 const SWITCHES={
   w1:{cap:'WAVE',opts:WAVES,def:'saw'},
   w2:{cap:'WAVE',opts:WAVES,def:'saw'},
@@ -553,7 +424,7 @@ const SWITCHES={
 };
 const TOGGLES={sync:{label:'SYNC',def:false},legato:{label:'LEGATO',def:false}};
 const LSHAPES=[['sin','Sine'],['tri','Triangle'],['saw','Sawtooth'],['sqr','Square'],['sh','Random (S&H)']];
-const SRCS=[['none','—'],['lfo1','LFO 1'],['lfo2','LFO 2'],['env3','ENV 3'],['vel','Velocity'],['mw','Mod wheel'],['kt','Keytrack']];
+const SRCS=[['none','—'],['lfo1','LFO 1'],['lfo2','LFO 2'],['env3','ENV 3'],['vel','Velocity'],['kt','Keytrack']];
 const DSTS=[['none','—'],['pitch','Pitch'],['p2','OSC 2 pitch'],['cut','Cutoff'],['res','Resonance'],['pw','Pulse width'],['det','Detune'],['vol','Volume'],['lfo1r','LFO 1 rate']];
 const SELECTS={
   lfo1s:{cap:'SHAPE',opts:LSHAPES,def:'sin'},lfo2s:{cap:'SHAPE',opts:LSHAPES,def:'tri'},
@@ -566,6 +437,7 @@ for(const k in PARAMS)INIT[k]=PARAMS[k].def;
 for(const k in SWITCHES)INIT[k]=SWITCHES[k].def;
 for(const k in TOGGLES)INIT[k]=TOGGLES[k].def;
 for(const k in SELECTS)INIT[k]=SELECTS[k].def;
+SELECTS.m1d.opts=DSTS.filter(([id])=>['pitch','vol','cut','pw'].includes(id));PARAMS.m1a.aria='LFO amount';INIT.m1s='lfo1';INIT.m1d='cut';
 const P=Object.assign({},INIT);
 
 // Obertöne
@@ -581,14 +453,11 @@ const HARM={
 let harm=HARM.saw.slice();
 
 const LESSONS={
+  course_pwm:{p:{w1:'sqr',l1:.8,l2:0,voices:1,pw:.5,cutoff:6500,res:.1,lfo1s:'tri',lfo1r:.6,m1s:'lfo1',m1d:'pw',m1a:.6},hi:['w1','pw','lfo1r'],play:{hold:45}},
+  course_vib:{p:{lfo1r:5,m1s:'lfo1',m1d:'pitch',m1a:.04},hi:['lfo1r','m1a'],play:{hold:57}},
+  course_trem:{p:{w1:'tri',lfo1r:5,m1s:'lfo1',m1d:'vol',m1a:.7},hi:['lfo1r','m1a'],play:{hold:57}},
+  course_wob:{p:{cutoff:600,res:.5,lfo1r:1,m1s:'lfo1',m1d:'cut',m1a:.45},hi:['lfo1r','m1a'],play:{hold:45}},
   init:{p:{},hi:[],play:{hold:45}},
-  h_listen:{p:{w1:'add',l1:.8,cutoff:18000,res:0},hi:['w1'],play:{hold:45}},
-  h_sine:{p:{w1:'add',cutoff:18000,res:0},harm:'sine',hi:['w1'],play:{hold:45}},
-  h_saw:{p:{w1:'add',cutoff:18000,res:0},harm:'saw',hi:['w1'],play:{hold:45}},
-  h_sqr:{p:{w1:'add',cutoff:18000,res:0},harm:'sqr',hi:['w1'],play:{hold:45}},
-  h_tri:{p:{w1:'add',cutoff:18000,res:0},harm:'tri',hi:['w1'],play:{hold:45}},
-  h_organ:{p:{w1:'add',cutoff:18000,res:0,e1a:.01,e1r:.08},harm:'organ',hi:['w1'],play:{hold:48}},
-  h_clear:{p:{w1:'add',cutoff:18000,res:0},harm:'clear',hi:['w1'],play:{hold:45}},
   d_same:{p:{w1:'saw',w2:'saw',l1:.7,l2:.7,cutoff:5000},hi:['l2','fine2'],play:{hold:45}},
   d_beat:{p:{w1:'saw',w2:'saw',l1:.7,l2:.7,fine2:8,cutoff:5000},hi:['fine2'],play:{hold:45}},
   d_fifth:{p:{w1:'saw',w2:'saw',l1:.7,l2:.6,semi2:7,cutoff:4000},hi:['semi2'],play:{hold:45}},
@@ -597,38 +466,17 @@ const LESSONS={
   u_7:{p:{w1:'saw',voices:7,detune:.3,width:.8,cutoff:6000,e1a:.15,e1r:.6},hi:['voices','detune','width'],play:{hold:57}},
   u_much:{p:{w1:'saw',voices:7,detune:1,width:.8,cutoff:6000,e1a:.15,e1r:.6},hi:['detune'],play:{hold:57}},
   u_mono:{p:{w1:'saw',voices:7,detune:.3,width:0,cutoff:6000,e1a:.15,e1r:.6},hi:['width'],play:{hold:57}},
-  s_sync:{p:{w1:'saw',w2:'saw',l1:0,l2:.8,sync:true,semi2:7,cutoff:9000},hi:['sync','semi2','l1'],play:{hold:45}},
-  s_sweep:{p:{w1:'saw',w2:'saw',l1:0,l2:.8,sync:true,semi2:0,cutoff:9000,e3a:.002,e3d:.9,e3s:.1,e3r:.4,m1s:'env3',m1d:'p2',m1a:.75},hi:['sync','m1s','m1d','m1a'],play:{seq:[45,45,52,45,48,45,55,52],step:.42,gate:.32,loops:2}},
-  f_notch:{p:{w1:'saw',mode:'notch',slope:'12',res:.55,cutoff:900,lfo1s:'tri',lfo1r:.25,m1s:'lfo1',m1d:'cut',m1a:.4},hi:['mode','m1a'],play:{hold:45}},
-  f_6:{p:{w1:'saw',slope:'6',cutoff:400,res:.6},hi:['slope'],play:{hold:45}},
-  f_12:{p:{w1:'saw',slope:'12',cutoff:400,res:.6},hi:['slope'],play:{hold:45}},
-  f_24:{p:{w1:'saw',slope:'24',cutoff:400,res:.6},hi:['slope'],play:{hold:45}},
-  f_self:{p:{l1:0,l2:0,slope:'12',res:1,cutoff:440,keytrk:0},hi:['res','cutoff'],play:{hold:57}},
-  f_kt0:{p:{w1:'saw',slope:'24',cutoff:700,res:.3,keytrk:0,e1r:.2},hi:['keytrk'],play:{seq:[33,45,57,69,81],step:.6,gate:.45}},
-  f_kt1:{p:{w1:'saw',slope:'24',cutoff:700,res:.3,keytrk:1,e1r:.2},hi:['keytrk'],play:{seq:[33,45,57,69,81],step:.6,gate:.45}},
-  f_play:{p:{l1:0,l2:0,slope:'12',res:1,cutoff:261.63,keytrk:1,e1a:.01,e1r:.15},hi:['keytrk','res'],play:{seq:[60,62,64,65,67,67,69,67,65,64,62,60],step:.3,gate:.26}},
-  f_drive0:{p:{w1:'saw',cutoff:1200,res:.55,drive:0},hi:['drive'],play:{hold:45}},
-  f_drive:{p:{w1:'saw',cutoff:1200,res:.55,drive:.7},hi:['drive'],play:{hold:45}},
-  m_vel:{p:{w1:'saw',cutoff:250,res:.35,m1s:'vel',m1d:'cut',m1a:.7,e1r:.2},hi:['m1s','m1d','m1a'],play:{seq:[[45,.1],[45,.35],[45,.6],[45,.85],[45,1]],step:.45,gate:.3}},
-  m_drop:{p:{w1:'saw',w2:'sqr',l2:.5,semi2:-12,cutoff:2500,e3a:.002,e3d:.18,e3s:0,e3r:.1,m1s:'env3',m1d:'pitch',m1a:.5},hi:['m1s','m1d','m1a','e3d'],play:{seq:[45,45,52,45],step:.5,gate:.3,loops:2}},
-  m_wheel:{p:{w1:'saw',cutoff:250,res:.5,m1s:'mw',m1d:'cut',m1a:.8},hi:['mw','m1s','m1d','m1a'],play:{hold:45}},
-  m_lfolfo:{p:{w1:'saw',cutoff:500,res:.6,lfo1s:'sin',lfo1r:2,lfo2s:'tri',lfo2r:.12,m1s:'lfo1',m1d:'cut',m1a:.45,m2s:'lfo2',m2d:'lfo1r',m2a:.8},hi:['m1s','m1d','m2s','m2d','m2a'],play:{hold:45}},
-  m_two:{p:{w1:'sqr',cutoff:1500,res:.3,lfo1s:'tri',lfo1r:.4,m1s:'lfo1',m1d:'pw',m1a:.8,m2s:'lfo1',m2d:'cut',m2a:-.35},hi:['m1s','m1d','m2s','m2d','m1a','m2a'],play:{hold:45}},
-  g_leg:{p:{w1:'saw',cutoff:2500,glide:.18,legato:true,e1a:.01},hi:['glide','legato'],play:{seq:[45,57,52,60,45],step:.45,gate:.55}},
-  g_noleg:{p:{w1:'saw',cutoff:2500,glide:.18,legato:false,e1a:.01},hi:['glide','legato'],play:{seq:[45,57,52,60,45],step:.45,gate:.55}}
 };
 
 const LAYOUT=[
   {name:'OSC 1',sw:['w1'],knobs:['pw','l1']},
-  {name:'OSC 2',tog:'sync',sw:['w2'],knobs:['semi2','fine2','l2']},
+  {name:'OSC 2',sw:['w2'],knobs:['semi2','fine2','l2']},
   {name:'UNISON',knobs:['voices','detune','width']},
-  {name:'LFO 1 / LFO 2',lfo:true},
-  {name:'FILTER',span:2,sw:['mode','slope'],knobs:['cutoff','res','drive','keytrk','envAmt']},
+  {name:'LFO',lfo:true},
+  {name:'FILTER',span:2,sw:['mode','slope'],knobs:['cutoff','res','envAmt']},
   {name:'ENV 1 · AMP',knobs:['e1a','e1d','e1s','e1r'],mini:'e1'},
   {name:'ENV 2 · FILTER',knobs:['e2a','e2d','e2s','e2r'],mini:'e2'},
-  {name:'ENV 3 · MOD',knobs:['e3a','e3d','e3s','e3r'],mini:'e3'},
-  {name:'MOD SLOTS',span:2,matrix:true},
-  {name:'PLAY',tog:'legato',knobs:['glide','mw','vol'],readout:true}
+  {name:'PLAY',knobs:['vol'],readout:true}
 ];
 
 // ---------- UI ----------
@@ -726,7 +574,7 @@ LAYOUT.forEach(sec=>{
   if(sec.sw){const r=document.createElement('div');r.className='swrow';sec.sw.forEach(id=>r.append(makeSwitch(id)));d.append(r);}
   if(sec.knobs){const k=document.createElement('div');k.className='knobs';sec.knobs.forEach(id=>k.append(makeKnob(id)));if(sec.tog)k.append(makeToggle(sec.tog));d.append(k);}
   if(sec.lfo){
-    [1,2].forEach(i=>{
+    [1].forEach(i=>{
       const row=document.createElement('div');row.className='lforow';
       row.append(makeKnob('lfo'+i+'r'));
       const side=document.createElement('div');side.className='side';
@@ -734,6 +582,7 @@ LAYOUT.forEach(sec=>{
       side.append(cap,makeSelect('lfo'+i+'s','LFO '+i+' shape'));
       const c=document.createElement('canvas');c.className='mini';c.setAttribute('aria-hidden','true');side.append(c);minis['lfo'+i]=c;
       row.append(side);d.append(row);
+      const route=document.createElement('div');route.className='lfo-route';route.append(makeKnob('m'+i+'a'),makeSelect('m'+i+'d'));d.append(route);
     });
   }
   if(sec.matrix){
@@ -777,14 +626,14 @@ const TAU=Math.PI*2;
 function blep(t,dt){if(t<dt){t/=dt;return t+t-t*t-1;}if(t>1-dt){t=(t-1)/dt;return t*t+t+t+1;}return 0;}
 const WV={sin:0,tri:1,saw:2,sqr:3,add:4};
 const LS={sin:0,tri:1,saw:2,sqr:3,sh:4};
-const SR={none:0,lfo1:1,lfo2:2,env3:3,vel:4,mw:5,kt:6};
+const SR={none:0,lfo1:1,lfo2:2,env3:3,vel:4,kt:6};
 const DS={none:0,pitch:1,p2:2,cut:3,res:4,pw:5,det:6,vol:7,lfo1r:8};
 class Funke2 extends AudioWorkletProcessor{
   constructor(){
     super();
     this.P={w1:2,w2:2,pw:.5,l1:.8,l2:0,semi2:0,fine2:0,sync:0,voices:1,detune:.25,width:.6,mode:0,slope:2,cutoff:3000,res:.2,drive:0,keytrk:0,envAmt:0,
       e1a:.005,e1d:.3,e1s:.8,e1r:.3,e2a:.005,e2d:.3,e2s:.5,e2r:.3,e3a:.005,e3d:.5,e3s:0,e3r:.3,lfo1s:0,lfo1r:3,lfo2s:1,lfo2r:.5,
-      m1s:0,m1d:0,m1a:0,m2s:0,m2d:0,m2a:0,m3s:0,m3d:0,m3a:0,glide:0,legato:0,mw:0};
+      m1s:0,m1d:0,m1a:0,m2s:0,m2d:0,m2a:0,m3s:0,m3d:0,m3a:0,glide:0,legato:0};
     this.ph1=new Float64Array(7);this.ph2=new Float64Array(7);
     for(let i=0;i<7;i++){this.ph1[i]=Math.random();this.ph2[i]=Math.random();}
     this.tab=new Float32Array(2049);this.setHarm(null);
@@ -855,7 +704,7 @@ class Funke2 extends AudioWorkletProcessor{
       let mPitch=0,mP2=0,mCut=0,mRes=0,mPw=0,mDet=0,mVol=0,mLr=0;
       for(let s=0;s<3;s++){
         const sl=S[s];if(!sl[0]||!sl[1]||!sl[2])continue;
-        const src=sl[0]===1?this.lv[0]:sl[0]===2?this.lv[1]:sl[0]===3?ev[2]:sl[0]===4?this.vel:sl[0]===5?P.mw:kt;
+        const src=sl[0]===1?this.lv[0]:sl[0]===2?this.lv[1]:sl[0]===3?ev[2]:sl[0]===4?this.vel:kt;
         const v=src*sl[2];
         switch(sl[1]){case 1:mPitch+=v;break;case 2:mP2+=v;break;case 3:mCut+=v;break;case 4:mRes+=v;break;case 5:mPw+=v;break;case 6:mDet+=v;break;case 7:mVol+=v;break;case 8:mLr+=v;break;}
       }
@@ -961,6 +810,7 @@ const noteName=m=>NAMES[((m%12)+12)%12]+(Math.floor(m/12)-1);
 function noteOn(m,vel,leg){if(!E.ready)return;cur=m;node.port.postMessage({t:'on',n:m,vel:vel==null?.8:vel,leg:!!leg});updateReadout(true);}
 function noteOff(){if(!E.ready)return;node.port.postMessage({t:'off'});updateReadout(false);}
 function press(m,vel){
+  if(window.SynthClass?.input){window.SynthClass.input(m,true,vel);return;}
   if(!E.ready){ensureAudio().then(()=>{if(E.ready)press(m,vel);});return;}
   ensureAudio();
   if(hold){if(latched===m){latched=null;noteOff();}else{const leg=latched!=null;latched=m;noteOn(m,vel,leg);}}
@@ -968,6 +818,7 @@ function press(m,vel){
   renderKeys();
 }
 function lift(m){
+  if(window.SynthClass?.input){window.SynthClass.input(m,false);return;}
   if(!E.ready){ensureAudio().then(()=>{if(E.ready)lift(m);});return;}
   if(hold)return;
   const top=stack[stack.length-1];
@@ -977,7 +828,7 @@ function lift(m){
   renderKeys();
 }
 function clearSeq(){seqTimers.forEach(clearTimeout);seqTimers=[];}
-function releaseAll(){clearSeq();stack=[];latched=null;noteOff();renderKeys();}
+function releaseAll(){resetPlayback();clearSeq();stack=[];latched=null;noteOff();renderKeys();}
 function setHold(on){
   hold=on;$('#hold').setAttribute('aria-pressed',String(on));
   if(on){if(stack.length){latched=stack[stack.length-1];stack=[];}}
@@ -1043,79 +894,74 @@ $('#stop').addEventListener('click',()=>stopLesson());
 
 function renderPower(){const on=!!ac&&ac.state==='running'&&E.ready;$('#power').setAttribute('aria-pressed',String(on));$('#powerLbl').textContent=on?'SOUND RUNNING':'SOUND ON';}
 $('#power').addEventListener('click',async()=>{if(ac&&ac.state==='running'){releaseAll();await ac.suspend();renderPower();}else{await ensureAudio();}});
-$('#midi').addEventListener('click',()=>{
-  const st=$('#midiStatus');
-  if(!navigator.requestMIDIAccess){st.textContent='No MIDI in this browser';return;}
-  navigator.requestMIDIAccess().then(acc=>{
-    const hook=()=>{let n=0;acc.inputs.forEach(inp=>{n++;inp.onmidimessage=ev=>{const[s,d1,d2]=ev.data;const c=s&0xf0;
-      if(c===0x90&&d2>0)press(d1,d2/127);else if(c===0x80||(c===0x90&&d2===0))lift(d1);else if(c===0xB0&&d1===1)setParam('mw',d2/127);};});
-      st.textContent=n?('MIDI: '+n+' device'+(n>1?'s':'')):'No MIDI device';};
-    hook();acc.onstatechange=hook;ensureAudio();
-  }).catch(()=>{st.textContent='MIDI blocked here';});
-});
-
 // ---------- Lektionen ----------
 function applyPatch(p){const full=Object.assign({},INIT,p);for(const k in full)setValue(k,full[k]);}
-function clearOn(){document.querySelectorAll('.try.on').forEach(x=>{x.classList.remove('on');x.setAttribute('aria-pressed','false');});}
-function offBtn(b){if(b&&b.classList.contains('on')){b.classList.remove('on');b.setAttribute('aria-pressed','false');}}
-function stopLesson(){releaseAll();setHold(false);setHi([]);clearOn();}
 let toastTimer=null;
 function showToast(){if(floating)return;const r=$('#synth').getBoundingClientRect();if(r.bottom>60&&r.top<window.innerHeight-60)return;const t=$('#toast');t.hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>{t.hidden=true;},4500);}
 $('#toastGo').addEventListener('click',()=>{$('#toast').hidden=true;$('#synth').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});});
-async function runLesson(key,btn){
+
+const PLAYBACK_TEXT={"ready": "Ready · Examples stop automatically. TEST loops until STOP.", "loaded": "Sound loaded · TEST starts the loop.", "error": "Audio could not start. Please try again.", "loop": "TEST looping · ■ STOP ends the test.", "example": "Example playing once · stops within 8 s plus release.", "finished": "Example finished · click again to listen."};
+// Examples are finite. Only the explicit TEST button starts an endless loop.
+let playbackToken=0;
+const playbackStatus=document.getElementById('playbackStatus');
+const testButton=document.getElementById('previewTest');
+function resetPlayback(){
+  playbackToken++;
+  testButton.setAttribute('aria-pressed','false');
+  playbackStatus.textContent=PLAYBACK_TEXT.ready;
+}
+function clearOn(){document.querySelectorAll('.try.on').forEach(x=>{x.classList.remove('on');x.setAttribute('aria-pressed','false');});}
+function offBtn(b){if(b){b.classList.remove('on');b.setAttribute('aria-pressed','false');}}
+function stopLesson(){releaseAll();setHold(false);setHi([]);clearOn();}
+function loadPreset(){
+  stopLesson();const L=LESSONS[$('#preset').value];if(L)applyPatch(L.p);
+  playbackStatus.textContent=PLAYBACK_TEXT.loaded;
+}
+async function runLesson(key,btn,loop=false){
   const L=LESSONS[key];if(!L)return;
-  await ensureAudio();
-  const pl=L.play||{};
-  const keep=pl.hold!=null&&hold&&latched===pl.hold;
-  if(!keep)releaseAll();
-  if(L.harm){harm=HARM[L.harm].slice();drawHarm();sendHarm();}
+  stopLesson();const token=playbackToken;
+  if([...$('#preset').options].some(option=>option.value===key))$('#preset').value=key;
   applyPatch(L.p);setHi(L.hi||[]);
-  clearOn();if(btn){btn.classList.add('on');btn.setAttribute('aria-pressed','true');}
-  if(pl.hold!=null){setHold(true);if(!keep){latched=null;press(pl.hold,.8);}}
-  else if(pl.seq){
-    setHold(false);const loops=pl.loops||1;let i=0;
-    for(let l=0;l<loops;l++)pl.seq.forEach(it=>{const nn=Array.isArray(it)?it[0]:it,vv=Array.isArray(it)?it[1]:.8;const at=i*pl.step*1000;seqTimers.push(setTimeout(()=>press(nn,vv),at));seqTimers.push(setTimeout(()=>lift(nn),at+pl.gate*1000));i++;});
-    seqTimers.push(setTimeout(()=>offBtn(btn),((i-1)*pl.step+pl.gate+Math.min(P.e1r,2))*1000));
-  }
-  showToast();
+  try{await ensureAudio();}catch(e){if(token===playbackToken)playbackStatus.textContent=PLAYBACK_TEXT.error;return;}
+  if(token!==playbackToken)return;
+  setHold(false);
+  if(btn){btn.classList.add('on');btn.setAttribute('aria-pressed','true');}
+  testButton.setAttribute('aria-pressed',String(loop));
+  playbackStatus.textContent=loop?PLAYBACK_TEXT.loop:PLAYBACK_TEXT.example;
+  const pl=L.play||{},isSequence=Array.isArray(pl.seq);
+  const notes=isSequence?pl.seq:[pl.once??pl.hold??45];
+  const gate=isSequence?Math.min(pl.gate||.3,pl.step||.5):Math.min(pl.len||6,6);
+  const step=isSequence?(pl.step||.5):gate+.25;
+  const count=isSequence?Math.min(notes.length*(pl.loops||1),Math.max(1,Math.floor(8/step))):1;
+  let index=0;
+  const finish=()=>{if(token!==playbackToken)return;offBtn(btn);setHi([]);playbackStatus.textContent=PLAYBACK_TEXT.finished;seqTimers=[];};
+  const tick=()=>{
+    if(token!==playbackToken)return;
+    const item=notes[index%notes.length],note=Array.isArray(item)?item[0]:item;
+    const velocity=Array.isArray(item)?item[1]:.8;
+    press(note,velocity);index++;
+    const off=setTimeout(()=>{if(token===playbackToken)lift(note);},gate*1000);
+    const next=setTimeout(loop||index<count?tick:finish,(loop||index<count?step:gate+Math.min(P.e1r,2))*1000);
+    seqTimers=[off,next];
+  };
+  tick();showToast();
 }
 document.querySelectorAll('.try').forEach(b=>{b.setAttribute('aria-pressed','false');b.addEventListener('click',()=>{if(b.classList.contains('on'))stopLesson();else runLesson(b.dataset.lesson,b);});});
-$('#preset').addEventListener('change',e=>runLesson(e.target.value,null));
+$('#preset').addEventListener('change',loadPreset);
+testButton.addEventListener('click',()=>runLesson($('#preset').value,null,true));
+document.getElementById('previewStop').addEventListener('click',stopLesson);
+document.getElementById('power').addEventListener('click',stopLesson,true);
+document.getElementById('hold').addEventListener('click',()=>{const was=hold;stopLesson();setHold(was);},true);
+document.addEventListener('visibilitychange',()=>{if(document.hidden)stopLesson();});
+window.addEventListener('pagehide',stopLesson);
 
 // ---------- Obertöne-Editor ----------
-const hb=$('#harmBars'),hw=$('#harmWave');
+
 function fit(c){const r=c.getBoundingClientRect(),d=window.devicePixelRatio||1;const w=Math.max(1,Math.round(r.width*d)),h=Math.max(1,Math.round(r.height*d));if(c.width!==w||c.height!==h){c.width=w;c.height=h;}return{g:c.getContext('2d'),w,h,d};}
 const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
 const COL={bg:css('--scope-bg'),grid:css('--scope-grid'),line:css('--scope-line'),curve:css('--curve'),spec:css('--spec'),dim:css('--panel-dim'),label:css('--panel-label')};
-function drawHarm(){
-  {const{g,w,h,d}=fit(hb);g.fillStyle=COL.bg;g.fillRect(0,0,w,h);
-   const pad=8*d,bw=(w-pad*2)/H,top=10*d,bot=h-22*d;
-   g.strokeStyle=COL.grid;g.beginPath();g.moveTo(0,bot);g.lineTo(w,bot);g.stroke();
-   g.font=(11*d)+'px "IBM Plex Mono", monospace';g.textAlign='center';g.textBaseline='top';
-   for(let i=0;i<H;i++){const x=pad+i*bw;const a=Math.abs(harm[i]);const bh=a*(bot-top);
-     g.fillStyle=i===0?COL.curve:COL.line;g.fillRect(x+bw*.18,bot-bh,bw*.64,bh);
-     g.fillStyle=COL.dim;g.fillText(String(i+1),x+bw/2,bot+5*d);}
-  }
-  {const{g,w,h,d}=fit(hw);g.fillStyle=COL.bg;g.fillRect(0,0,w,h);
-   g.strokeStyle=COL.grid;g.beginPath();g.moveTo(0,h/2);g.lineTo(w,h/2);g.stroke();
-   const pts=[];let max=0;for(let x=0;x<=w;x+=d){const t=x/w;let v=0;for(let n=0;n<H;n++)if(harm[n])v+=harm[n]*Math.sin(2*Math.PI*(n+1)*t);pts.push(v);if(Math.abs(v)>max)max=Math.abs(v);}
-   const sc=max>1e-6?(h*.42)/max:0;
-   g.strokeStyle=COL.line;g.lineWidth=2*d;g.lineJoin='round';g.beginPath();pts.forEach((v,i)=>{const x=i*d,y=h/2-v*sc;i?g.lineTo(x,y):g.moveTo(x,y);});g.stroke();
-  }
-}
-let hDrag=false;
-function harmAt(e){
-  const r=hb.getBoundingClientRect();const pad=8,bw=(r.width-pad*2)/H,top=10,bot=r.height-22;
-  const i=Math.floor((e.clientX-r.left-pad)/bw);if(i<0||i>=H)return;
-  const v=Math.max(0,Math.min(1,(bot-(e.clientY-r.top))/(bot-top)));
-  const sign=harm[i]<0?-1:1;harm[i]=sign*(v<.02?0:v);drawHarm();sendHarm();
-}
-hb.addEventListener('pointerdown',e=>{e.preventDefault();hDrag=true;hb.setPointerCapture(e.pointerId);harmAt(e);});
-hb.addEventListener('pointermove',e=>{if(hDrag)harmAt(e);});
-hb.addEventListener('pointerup',()=>{hDrag=false;});hb.addEventListener('pointercancel',()=>{hDrag=false;});
-new ResizeObserver(drawHarm).observe(hb);
-
-// ---------- Anzeigen ----------
+function drawHarm(){}
+// Displays
 const scope=$('#scope'),spec=$('#spec');let td=null,fdat=null;
 function drawScope(){
   const{g,w,h,d}=fit(scope);g.fillStyle=COL.bg;g.fillRect(0,0,w,h);
@@ -1183,14 +1029,14 @@ function frame(){
 // ---------- Schwebendes Fenster ----------
 const BASEW=1480;
 const synthEl=$('#synth'),col=$('.synth-col'),head=synthEl.querySelector('.s-head');
-const store={get(){try{return JSON.parse(localStorage.getItem('funke2-win')||'null');}catch(e){return null;}},set(v){try{localStorage.setItem('funke2-win',JSON.stringify(v));}catch(e){}}};
+const store={get(){try{return JSON.parse(localStorage.getItem('funke-course-2')||'null');}catch(e){return null;}},set(v){try{localStorage.setItem('funke-course-2',JSON.stringify(v));}catch(e){}}};
 const saved=store.get()||{};
-let floating=false,pos={x:saved.x,y:saved.y},wantFloat=saved.float!==false,userS=saved.s||null,curS=1;
+let floating=false,pos={x:null,y:null},wantFloat=true,userS=null,curS=1;
 const canFloat=()=>window.innerWidth>=900;
-const fitScale=v=>Math.max(.45,Math.min(v,1.8,(window.innerWidth-16)/BASEW,(window.innerHeight-16)/Math.max(1,synthEl.offsetHeight)));
+const fitScale=v=>Math.max(.25,Math.min(v,1.8,(window.innerWidth-16)/BASEW,(window.innerHeight-16)/Math.max(1,synthEl.offsetHeight)));
 function applySize(){
   if(!floating){synthEl.style.removeProperty('--s');curS=1;return;}
-  curS=fitScale(userS||1);
+  curS=fitScale(userS||Math.min(1,Math.max(300,window.innerWidth-$('.text').getBoundingClientRect().right-24)/BASEW));
   synthEl.style.setProperty('--s',curS.toFixed(4));
 }
 function clampPos(){
@@ -1222,8 +1068,13 @@ const rzEnd=e=>{if(!rs||e.pointerId!==rs.id)return;rs=null;synthEl.classList.rem
 rz.addEventListener('pointerup',rzEnd);rz.addEventListener('pointercancel',rzEnd);
 rz.addEventListener('dblclick',()=>{userS=null;applySize();clampPos();saveWin();});
 window.addEventListener('resize',()=>{if(floating&&!canFloat())setFloat(false);else if(!floating&&wantFloat&&canFloat())setFloat(true);else if(floating){applySize();clampPos();}});
-setMin(saved.min!==false);
+setMin(false);
 setFloat(wantFloat&&canFloat());
+
+
+window.SynthClass={get:id=>P[id],set:(id,v)=>setValue(id,v),ready:ensureAudio,
+  on:(n,v=.8)=>noteOn(n,v,false),off:noteOff,stop:stopLesson,
+  input:null};
 
 buildKeys();
 let rw=keysEl.clientWidth;
@@ -1232,5 +1083,6 @@ drawHarm();
 requestAnimationFrame(frame);
 })();
 </script>
+<script src="course.js?v=613325a336"></script>
 </body>
 </html>
