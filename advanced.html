@@ -476,7 +476,7 @@ const LAYOUT=[
   {name:'FILTER',span:2,sw:['mode','slope'],knobs:['cutoff','res','envAmt']},
   {name:'ENV 1 · AMP',knobs:['e1a','e1d','e1s','e1r'],mini:'e1'},
   {name:'ENV 2 · FILTER',knobs:['e2a','e2d','e2s','e2r'],mini:'e2'},
-  {name:'PLAY',knobs:['vol'],readout:true}
+  {name:'OUT',knobs:['vol'],readout:true}
 ];
 
 // ---------- UI ----------
@@ -567,7 +567,7 @@ function makeToggle(id){
 }
 const secsEl=$('#secs');
 LAYOUT.forEach(sec=>{
-  const d=document.createElement('div');d.className='sec'+(sec.span?' span2':'');d.dataset.kind=/ENV/.test(sec.name)?'env':/LFO/.test(sec.name)?'lfo':/FILTER/.test(sec.name)?'filter':/MOD/.test(sec.name)?'mod':/PLAY/.test(sec.name)?'out':'osc';
+  const d=document.createElement('div');d.className='sec'+(sec.span?' span2':'');d.dataset.kind=/ENV/.test(sec.name)?'env':/LFO/.test(sec.name)?'lfo':/FILTER/.test(sec.name)?'filter':/MOD/.test(sec.name)?'mod':/OUT/.test(sec.name)?'out':'osc';
   const head=document.createElement('div');head.className='sec-head';
   const n=document.createElement('div');n.className='sec-name';n.textContent=sec.name;head.append(n);
   d.append(head);
