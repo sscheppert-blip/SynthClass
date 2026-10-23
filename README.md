@@ -39,3 +39,5 @@ Ein fünfteiliger Synthesizer-Kurs im Browser: Grundlagen, Klangbewegung, Modula
 Released into the public domain under the [Unlicense](LICENSE). Use it in class, at university, in your own projects, anywhere.
 
 Fonts are loaded from Google Fonts and keep their own licenses (SIL Open Font License). Product names mentioned in the comparison table belong to their respective owners.
+
+<sub>Before pushing: `tools/check-sensitive-data.sh` (needs ripgrep) scans the tracked files for credentials and local paths; `.githooks/pre-push` runs it before every push once enabled with `git config core.hooksPath .githooks`.</sub>
