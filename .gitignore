@@ -1,0 +1,5 @@
+# Agent notes stay local (kept in the owner's cloud copy), never in the repository
+AGENTS.md
+CLAUDE.md
+CLAUDE.local.md
+.claude/
