@@ -9,7 +9,7 @@ SynthClass is a six-part, browser-based course with a playable teaching synth ne
 - **Part 3 · Modulation** (`modulation.html`): sources, destinations, positive and negative amounts, and a three-row modulation matrix with guided exercises.
 - **Part 4 · Sequencer & arpeggiator** (`sequencer.html`): eight editable steps with rests, BPM, note division and gate; held-note arpeggiation with up, down and up/down directions and one or two octaves.
 - **Part 5 · Drums & percussion** (`drums.html`): recipes and editable presets for an 808-style kick, closed and open hi-hat, snare, tom and woodstick. Builds each sound with oscillators, noise, filters and amplitude/pitch envelopes.
-- **Part 6 · Synths & sounds** (`sounds.html`): how to build a key, stab, pad, lead and bass, with the focus on setting the amp and filter envelopes. Includes an envelope-only comparison, a cheat sheet and a POLY switch (up to eight voices) for chord sounds.
+- **Part 6 · Synths & sounds** (`sounds.html`): how to build a key, pluck, stab, pad, lead and bass, with the focus on setting the amp and filter envelopes. Includes an envelope-only comparison, a cheat sheet and a POLY switch (up to eight voices) for chord sounds.
 
 Available in English and German (`/de`).
 
@@ -33,7 +33,7 @@ Serve locally with `python -m http.server 8765` and open `http://localhost:8765/
 
 # SynthClass (Deutsch)
 
-Ein sechsteiliger Synthesizer-Kurs im Browser: Grundlagen, Klangbewegung, Modulationsmatrix, achtstufiger Sequencer mit Arpeggiator, Drums und Percussion sowie Synths und Sounds (Key, Stab, Pad, Lead und Bass mit Schwerpunkt auf den Hüllkurven). Mit spielbarem Lernsynth direkt neben dem Text. Die deutsche Version liegt unter `/de`.
+Ein sechsteiliger Synthesizer-Kurs im Browser: Grundlagen, Klangbewegung, Modulationsmatrix, achtstufiger Sequencer mit Arpeggiator, Drums und Percussion sowie Synths und Sounds (Key, Pluck, Stab, Pad, Lead und Bass mit Schwerpunkt auf den Hüllkurven). Mit spielbarem Lernsynth direkt neben dem Text. Die deutsche Version liegt unter `/de`.
 
 ## License
 
