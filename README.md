@@ -2,7 +2,7 @@
 
 Learn how a synthesizer works by reading and twisting knobs at the same time.
 
-SynthClass is a six-part, browser-based course with a playable teaching synth next to the text. Sound examples load a matching sound, play it and mark the controls that matter.
+SynthClass is a seven-part, browser-based course with a playable teaching synth next to the text. Sound examples load a matching sound, play it and mark the controls that matter.
 
 - **Part 1 · Basics** (`index.html`): basic waveforms, manual pulse width, filters, amp ADSR and filter ADSR. No PWM, LFO or FM controls or lessons.
 - **Part 2 · Movement** (`advanced.html`): two oscillators, detune, unison and LFO including pulse width modulation (PWM), with a simple destination and depth control.
@@ -10,6 +10,7 @@ SynthClass is a six-part, browser-based course with a playable teaching synth ne
 - **Part 4 · Sequencer & arpeggiator** (`sequencer.html`): eight editable steps with rests, BPM, note division and gate; held-note arpeggiation with up, down and up/down directions and one or two octaves.
 - **Part 5 · Drums & percussion** (`drums.html`): recipes and editable presets for an 808-style kick, closed and open hi-hat, snare, tom and woodstick. Builds each sound with oscillators, noise, filters and amplitude/pitch envelopes.
 - **Part 6 · Synths & sounds** (`sounds.html`): how to build a key, pluck, stab, pad, lead and bass, with the focus on setting the amp and filter envelopes. Includes an envelope-only comparison, a cheat sheet and a POLY switch (up to eight voices) for chord sounds.
+- **Part 7 · Iconic sounds** (`iconic.html`): seven famous sounds rebuilt in the style of the originals, from a Kraftwerk-style lead to the Reese bass, the rave hoover, a dub-techno chord and a dream-dance lead. Adds chorus, delay and reverb, and TB-303-style slides. Examples play their own phrases, never original melodies; sources are listed on the page.
 
 Available in English and German (`/de`).
 
@@ -25,7 +26,7 @@ Lesson examples end automatically within eight seconds plus envelope release and
 
 ## How the sound is made
 
-Everything runs in the browser with the Web Audio API. Part 1 uses Web Audio nodes plus a custom state-variable filter in an AudioWorklet; parts 2–6 run the complete voice in an AudioWorklet, so modulation is sample-accurate. Part 6 adds polyphony: with POLY on, up to eight voices share the same patch; with POLY off the synth behaves like parts 2–4 (mono, legato, glide). Part 5 adds noise as an oscillator waveform and resets oscillator/envelope phases on drum triggers. The teaching sequencer uses a browser timer; it is intended for learning rather than DAW synchronization. It stops when the page is hidden. The arpeggiator accepts notes from mouse/touch and the computer keyboard, or a latched C-major example chord.
+Everything runs in the browser with the Web Audio API. Part 1 uses Web Audio nodes plus a custom state-variable filter in an AudioWorklet; parts 2–7 run the complete voice in an AudioWorklet, so modulation is sample-accurate. Part 6 adds polyphony: with POLY on, up to eight voices share the same patch; with POLY off the synth behaves like parts 2–4 (mono, legato, glide). Part 5 adds noise as an oscillator waveform and resets oscillator/envelope phases on drum triggers. The teaching sequencer uses a browser timer; it is intended for learning rather than DAW synchronization. It stops when the page is hidden. The arpeggiator accepts notes from mouse/touch and the computer keyboard, or a latched C-major example chord.
 
 Serve locally with `python -m http.server 8765` and open `http://localhost:8765/de/` for German. The German movement page is `de/fortgeschritten.html`; the other filenames match English. Shared teaching controls and layout live in `course.js` and `course.css`.
 
@@ -33,7 +34,7 @@ Serve locally with `python -m http.server 8765` and open `http://localhost:8765/
 
 # SynthClass (Deutsch)
 
-Ein sechsteiliger Synthesizer-Kurs im Browser: Grundlagen, Klangbewegung, Modulationsmatrix, achtstufiger Sequencer mit Arpeggiator, Drums und Percussion sowie Synths und Sounds (Key, Pluck, Stab, Pad, Lead und Bass mit Schwerpunkt auf den Hüllkurven). Mit spielbarem Lernsynth direkt neben dem Text. Die deutsche Version liegt unter `/de`.
+Ein siebenteiliger Synthesizer-Kurs im Browser: Grundlagen, Klangbewegung, Modulationsmatrix, achtstufiger Sequencer mit Arpeggiator, Drums und Percussion Synths und Sounds (Key, Pluck, Stab, Pad, Lead und Bass mit Schwerpunkt auf den Hüllkurven) sowie ikonische Sounds im Stil berühmter Vorbilder. Mit spielbarem Lernsynth direkt neben dem Text. Die deutsche Version liegt unter `/de`.
 
 ## License
 
