@@ -332,7 +332,7 @@ footer.foot{margin-top:56px;border-top:1px solid var(--rule);padding-top:10px;fo
           <div class="brand"><span class="grip" aria-hidden="true" title="Zum Verschieben ziehen"></span><span class="n">FUNKE 2</span><span class="d">LERNSYNTH</span></div>
           <div class="ctrls">
             <label for="preset" class="brand"><span class="d">SOUND</span></label>
-            <select id="preset"><option value="init">Grundsound</option><option value="m_vel">Velocity → Cutoff</option><option value="m_drop">ENV → Pitch</option><option value="m_two">2 Ziele</option></select>
+            <select id="preset"><option value="init">Init</option><option value="m_vel">Velocity → Cutoff</option><option value="m_drop">ENV → Pitch</option><option value="m_two">2 Ziele</option></select>
             <button class="pbtn" id="previewTest" aria-pressed="false">▶ TEST (LOOP)</button><button class="pbtn preview-stop" id="previewStop">■ STOPP</button><button class="pbtn power" id="power" aria-pressed="false"><span class="dot"></span><span id="powerLbl">TON AN</span></button>
             <button class="pbtn" id="minimize" aria-expanded="true" aria-controls="synth">EINKLAPPEN</button>
             <button class="pbtn" id="dock">ANDOCKEN</button>
@@ -447,7 +447,7 @@ let harm=HARM.saw.slice();
 
 const LESSONS={
   course_wob:{p:{cutoff:600,res:.5,lfo1r:1,m1s:'lfo1',m1d:'cut',m1a:.45},hi:['lfo1r','m1a'],play:{hold:45}},
-  init:{p:{},hi:[],play:{hold:45}},
+  init:{"p":{"w1":"saw","l2":0,"voices":1,"cutoff":18000,"res":0,"envAmt":0,"drive":0,"keytrk":0,"e1a":0.002,"e1d":0.3,"e1s":1,"e1r":0.03},"hi":[],"play":{"hold":45}},
   m_vel:{p:{w1:'saw',cutoff:250,res:.35,m1s:'vel',m1d:'cut',m1a:.7,e1r:.2},hi:['m1s','m1d','m1a'],play:{seq:[[45,.1],[45,.35],[45,.6],[45,.85],[45,1]],step:.45,gate:.3}},
   m_drop:{p:{w1:'saw',w2:'sqr',l2:.5,semi2:-12,cutoff:2500,e3a:.002,e3d:.18,e3s:0,e3r:.1,m1s:'env3',m1d:'pitch',m1a:.5},hi:['m1s','m1d','m1a','e3d'],play:{seq:[45,45,52,45],step:.5,gate:.3,loops:2}},
   m_lfolfo:{p:{w1:'saw',cutoff:500,res:.6,lfo1s:'sin',lfo1r:2,lfo2s:'tri',lfo2r:.12,m1s:'lfo1',m1d:'cut',m1a:.45,m2s:'lfo2',m2d:'lfo1r',m2a:.8},hi:['m1s','m1d','m2s','m2d','m2a'],play:{hold:45}},

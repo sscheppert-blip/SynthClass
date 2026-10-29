@@ -315,7 +315,7 @@ footer.foot{margin-top:56px;border-top:1px solid var(--rule);padding-top:10px;fo
           <div class="brand"><span class="grip" aria-hidden="true" title="Zum Verschieben ziehen"></span><span class="n">FUNKE 2</span><span class="d">LERNSYNTH</span></div>
           <div class="ctrls">
             <label for="preset" class="brand"><span class="d">SOUND</span></label>
-            <select id="preset"><option value="init">Grundsound</option><option value="d_beat">Detune</option><option value="u_7">Unison</option></select>
+            <select id="preset"><option value="init">Init</option><option value="d_beat">Detune</option><option value="u_7">Unison</option></select>
             <button class="pbtn" id="previewTest" aria-pressed="false">▶ TEST (LOOP)</button><button class="pbtn preview-stop" id="previewStop">■ STOPP</button><button class="pbtn power" id="power" aria-pressed="false"><span class="dot"></span><span id="powerLbl">TON AN</span></button>
             <button class="pbtn" id="minimize" aria-expanded="true" aria-controls="synth">EINKLAPPEN</button>
             <button class="pbtn" id="dock">ANDOCKEN</button>
@@ -429,7 +429,7 @@ const HARM={
 let harm=HARM.saw.slice();
 
 const LESSONS={
-  init:{p:{},hi:[],play:{hold:45}},
+  init:{"p":{"w1":"saw","l2":0,"voices":1,"cutoff":18000,"res":0,"envAmt":0,"drive":0,"keytrk":0,"e1a":0.002,"e1d":0.3,"e1s":1,"e1r":0.03},"hi":[],"play":{"hold":45}},
   d_beat:{p:{w1:'saw',w2:'saw',l1:.7,l2:.7,fine2:8,cutoff:5000},hi:['fine2'],play:{hold:45}},
   u_7:{p:{w1:'saw',voices:7,detune:.3,width:.8,cutoff:6000,e1a:.15,e1r:.6},hi:['voices','detune','width'],play:{hold:57}},
 };

@@ -22,6 +22,8 @@ Play with a mouse, touch or your computer keyboard (keys shown on the piano). Yo
 
 Every page starts with the synth expanded in a floating window beside the lesson on desktop. Its default size fits in the right half of the screen; controls wrap and the window scrolls independently. It can be moved, resized or docked. On narrow screens it sits above the text. Saved floating or collapsed window state is ignored.
 
+Every synth's SOUND menu starts with **Init**: one sawtooth, filter fully open, no resonance, no modulation, no unison and no effects, as a neutral starting point.
+
 Lesson examples end automatically within eight seconds plus envelope release and never enable note latching. Selecting a preset only loads its sound. Press **TEST (LOOP)** to audition it repeatedly (including the Acid line); the prominent **STOP** button ends playback. The manual note-latch control is labelled **LATCH NOTE** / **TON HALTEN**.
 
 ## How the sound is made

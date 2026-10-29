@@ -316,7 +316,7 @@ footer.foot{margin-top:56px;border-top:1px solid var(--rule);padding-top:10px;fo
           <div class="brand"><span class="grip" aria-hidden="true" title="Drag to move"></span><span class="n">FUNKE 2</span><span class="d">TEACHING SYNTH</span></div>
           <div class="ctrls">
             <label for="preset" class="brand"><span class="d">SOUND</span></label>
-            <select id="preset"><option value="drum_kick">808-style kick</option><option value="drum_hat">Closed hi-hat</option><option value="drum_hat_open">Open hi-hat</option><option value="drum_snare">Snare</option><option value="drum_tom">Tom</option><option value="drum_wood">Woodstick</option></select>
+            <select id="preset"><option value="init">Init</option><option value="drum_kick">808-style kick</option><option value="drum_hat">Closed hi-hat</option><option value="drum_hat_open">Open hi-hat</option><option value="drum_snare">Snare</option><option value="drum_tom">Tom</option><option value="drum_wood">Woodstick</option></select>
             <button class="pbtn" id="previewTest" aria-pressed="false">▶ TEST (LOOP)</button><button class="pbtn preview-stop" id="previewStop">■ STOP</button><button class="pbtn power" id="power" aria-pressed="false"><span class="dot"></span><span id="powerLbl">SOUND ON</span></button>
             <button class="pbtn" id="minimize" aria-expanded="true" aria-controls="synth">COLLAPSE</button>
             <button class="pbtn" id="dock">DOCK</button>
@@ -430,6 +430,7 @@ const HARM={
 let harm=HARM.saw.slice();
 
 const LESSONS={
+  init:{"p":{"w1":"saw","l2":0,"voices":1,"cutoff":18000,"res":0,"envAmt":0,"drive":0,"keytrk":0,"e1a":0.002,"e1d":0.3,"e1s":1,"e1r":0.03},"hi":[],"play":{"hold":45}},
   drum_kick:{"p":{"voices":1,"detune":0,"width":0,"sync":false,"glide":0,"legato":false,"w1":"sin","w2":"sin","l1":0.85,"l2":0,"mode":"lp","slope":"12","cutoff":5000,"res":0,"drive":0.08,"keytrk":0,"envAmt":0,"e1a":0.002,"e1d":0.65,"e1s":0,"e1r":0.2,"e3a":0.002,"e3d":0.045,"e3s":0,"e3r":0.025,"vol":0.55,"m1s":"env3","m1d":"pitch","m1a":0.9},"hi":["w1","e1d","e1s","m1s","m1d","m1a","e3d"],"play":{"seq":[33,33,33,33],"step":0.85,"gate":0.72}},
   drum_hat:{"p":{"voices":1,"detune":0,"width":0,"sync":false,"glide":0,"legato":false,"w1":"noi","w2":"sin","l1":0.7,"l2":0,"mode":"hp","slope":"12","cutoff":7000,"res":0,"drive":0,"keytrk":0,"envAmt":0,"e1a":0.002,"e1d":0.055,"e1s":0,"e1r":0.025,"e3a":0.002,"e3d":0.045,"e3s":0,"e3r":0.025,"vol":0.55},"hi":["w1","mode","cutoff","e1d","e1s"],"play":{"seq":[60,60,60,60],"step":0.25,"gate":0.14}},
   drum_hat_open:{"p":{"voices":1,"detune":0,"width":0,"sync":false,"glide":0,"legato":false,"w1":"noi","w2":"sin","l1":0.65,"l2":0,"mode":"hp","slope":"12","cutoff":7000,"res":0,"drive":0,"keytrk":0,"envAmt":0,"e1a":0.002,"e1d":0.32,"e1s":0,"e1r":0.12,"e3a":0.002,"e3d":0.045,"e3s":0,"e3r":0.025,"vol":0.55},"hi":["w1","mode","cutoff","e1d","e1s"],"play":{"seq":[60,60,60,60],"step":0.5,"gate":0.42}},

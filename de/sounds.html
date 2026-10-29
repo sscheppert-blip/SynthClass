@@ -315,7 +315,7 @@ footer.foot{margin-top:56px;border-top:1px solid var(--rule);padding-top:10px;fo
           <div class="brand"><span class="grip" aria-hidden="true" title="Zum Verschieben ziehen"></span><span class="n">FUNKE 2</span><span class="d">LERNSYNTH</span></div>
           <div class="ctrls">
             <label for="preset" class="brand"><span class="d">SOUND</span></label>
-            <select id="preset"><option value="key">Key</option><option value="pluck">Pluck</option><option value="stab">Stab</option><option value="pad">Pad</option><option value="lead">Lead</option><option value="bass">Bass</option></select>
+            <select id="preset"><option value="init">Init</option><option value="key">Key</option><option value="pluck">Pluck</option><option value="stab">Stab</option><option value="pad">Pad</option><option value="lead">Lead</option><option value="bass">Bass</option></select>
             <button class="pbtn" id="previewTest" aria-pressed="false">▶ TEST (LOOP)</button><button class="pbtn preview-stop" id="previewStop">■ STOPP</button><button class="pbtn power" id="power" aria-pressed="false"><span class="dot"></span><span id="powerLbl">TON AN</span></button>
             <button class="pbtn" id="minimize" aria-expanded="true" aria-controls="synth">EINKLAPPEN</button>
             <button class="pbtn" id="dock">ANDOCKEN</button>
@@ -429,6 +429,7 @@ const HARM={
 let harm=HARM.saw.slice();
 
 const LESSONS={
+  init:{"p":{"poly":false,"legato":false,"glide":0,"w1":"saw","l2":0,"voices":1,"cutoff":18000,"res":0,"envAmt":0,"drive":0,"keytrk":0,"e1a":0.002,"e1d":0.3,"e1s":1,"e1r":0.03},"hi":[],"play":{"hold":45}},
   key:{"p":{"poly":true,"w1":"tri","l1":0.8,"w2":"saw","semi2":12,"l2":0.2,"voices":1,"mode":"lp","slope":"12","cutoff":900,"res":0.1,"keytrk":0.5,"envAmt":0.45,"m1s":"vel","m1d":"cut","m1a":0.25,"vol":0.55,"e1a":0.003,"e1d":1.6,"e1s":0.12,"e1r":0.45,"e2a":0.002,"e2d":0.9,"e2s":0.1,"e2r":0.4},"hi":["poly","e1a","e1d","e1s","e1r","e2d","e2s","envAmt"],"play":{"seq":[{"c":[48,60,64,67],"v":0.75},{"c":[45,57,60,64],"v":0.55},{"c":[41,57,60,65],"v":0.95},{"c":[43,55,59,62],"v":0.7}],"step":1.8,"gate":1.4}},
   pluck:{"p":{"poly":true,"w1":"saw","w2":"saw","l1":0.7,"l2":0.5,"fine2":10,"voices":3,"detune":0.15,"width":0.6,"mode":"lp","slope":"24","cutoff":400,"res":0.2,"keytrk":0.6,"envAmt":0.55,"vol":0.7,"e1a":0.002,"e1d":0.4,"e1s":0,"e1r":0.3,"e2a":0.002,"e2d":0.12,"e2s":0,"e2r":0.2},"hi":["poly","e1d","e1s","e1r","e2d","e2s","envAmt"],"play":{"seq":[57,60,64,69,72,69,64,60],"step":0.121,"gate":0.1,"loops":3}},
   stab:{"p":{"poly":true,"w1":"saw","w2":"sqr","semi2":12,"l1":0.7,"l2":0.35,"voices":3,"detune":0.15,"width":0.5,"mode":"lp","slope":"24","cutoff":350,"res":0.3,"keytrk":0.3,"envAmt":0.6,"vol":0.55,"e1a":0.002,"e1d":0.22,"e1s":0,"e1r":0.12,"e2a":0.002,"e2d":0.16,"e2s":0,"e2r":0.1},"hi":["poly","e1d","e1s","e1r","e2d","e2s","envAmt"],"play":{"seq":[null,{"c":[55,60,63,67]},null,{"c":[55,60,63,67]},null,{"c":[55,60,63,67]},null,{"c":[56,60,63,68]}],"step":0.242,"gate":0.2,"loops":2}},

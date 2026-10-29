@@ -359,7 +359,7 @@ footer.foot{margin-top:56px;border-top:1px solid var(--rule);padding-top:10px;fo
           <div class="brand"><span class="grip" aria-hidden="true" title="Drag to move"></span><span class="n">FUNKE 1</span><span class="d">TEACHING SYNTH</span></div>
           <div class="ctrls">
             <label for="preset" class="brand"><span class="d">SOUND</span></label>
-            <select id="preset"><option value="init">Initial sound</option><option value="fe_acid">Acid line</option><option value="e_pad">Soft pad</option><option value="e_pluck">Pluck</option><option value="pw10">Pulse wave · PW 10 %</option></select>
+            <select id="preset"><option value="init">Init</option><option value="fe_acid">Acid line</option><option value="e_pad">Soft pad</option><option value="e_pluck">Pluck</option><option value="pw10">Pulse wave · PW 10 %</option></select>
             <button class="pbtn" id="previewTest" aria-pressed="false">▶ TEST (LOOP)</button><button class="pbtn preview-stop" id="previewStop">■ STOP</button><button class="pbtn power" id="power" aria-pressed="false"><span class="dot"></span><span id="powerLbl">SOUND ON</span></button>
             <button class="pbtn" id="minimize" aria-expanded="true" aria-controls="synth">COLLAPSE</button>
             <button class="pbtn" id="dock">DOCK</button>
@@ -439,7 +439,7 @@ for(const k in SWITCHES)INIT[k]=SWITCHES[k].def;
 const P=Object.assign({},INIT);
 
 const LESSONS={
-  init:{p:{},hi:[],play:{hold:45}},
+  init:{"p":{"wave":"saw","tune":0,"cutoff":18000,"res":0,"envAmt":0,"fm":0,"lfoAmt":0,"aa":0.001,"ad":0.3,"as":1,"ar":0.03},"hi":[],"play":{"hold":45}},
   w_sin:{p:{wave:'sin',cutoff:18000,res:0},hi:['wave'],play:{hold:57}},
   w_tri:{p:{wave:'tri',cutoff:18000,res:0},hi:['wave'],play:{hold:57}},
   w_saw:{p:{wave:'saw',cutoff:18000,res:0},hi:['wave'],play:{hold:57}},
